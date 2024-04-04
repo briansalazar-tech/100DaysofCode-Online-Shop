@@ -1,0 +1,33 @@
+{% include "header.html" %}
+
+<!-- Payment page content -->
+<div class="container">
+<h1 class="page_name">2. Payment information</h1>
+</div>
+<div class="content container rounded">
+  <h2>Order Details</h2>
+  <p>
+  {% for line in order_details %}
+    {{ line }}
+    <br>
+  {% endfor %}
+  </p>
+  <h2>Shipping & Contact Information</h2>
+  <p>
+  {% for line in shipping_address %}
+    {{ line }}
+    <br>
+  {% endfor %}
+  </p>
+  <h2>Proceed to Payment</h2>
+  <p>Payment information processed using Stripe.</p>
+  <a href="{{ url_for('shipping') }}"><button type="button" class="btn btn-light">Back to Shipping</button></a>
+  <a href="{{ url_for('create_checkout_session') }}"><button type="button" class="btn btn-primary btn-lg" id="submitBtn">Pay with Stripe</button></a>
+  <img src="../static/assets/site_imgs/tomatofrog.jpg" style="margin-left: 2rem;" alt="Tomato frog">
+  <p class="disclaimer">This website was created as part of a project. Payment tested using Stripe's test payment card. No actual payment processed and website is a proof of concept.</p>
+</div>
+<script src="https://js.stripe.com/v3/"></script>  <!-- Points to Stripe -->
+<script src="{{ url_for('static', filename='js/run_payment.js') }}"></script> <!-- Points to main.js -->
+       
+<!-- Footer  -->
+{% include "footer.html" %}

@@ -1,0 +1,17 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% include "header.html" %}
+
+<!-- Shipping information page content -->
+<div class="container">
+<h1 class="page_name">1. Shipping information</h1>
+</div>
+<div class="content container rounded">
+  <p style="margin-bottom: 3rem;">Enter your shipping information. Payment information will be processed on the next page.</p>
+  <div style="width: 75%">
+    {{ render_form(shipping_form, novalidate=True, button_map={"back": "light", "proceed": "primary"}) }}
+  </div>
+  <p class="disclaimer">This website was created as part of a project. No actual order will be processed.</p>
+</div>
+
+<!-- Footer  -->
+{% include "footer.html" %}

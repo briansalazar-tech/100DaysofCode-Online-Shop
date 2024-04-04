@@ -1,0 +1,65 @@
+.homepage {
+    background-image: url("../assets/site_imgs/bg_forestfloor.jpg");
+}
+
+.homepage_text {
+    font-weight:400;
+}
+
+#header_img {
+    background-image: url("../assets/site_imgs/bg_forestfloor.jpg");
+    height: 400px;
+}
+
+#homepage_header {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+  }
+
+.pages {
+    background-image: url("../assets/site_imgs/bg_forestfloor.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+
+}
+
+.page_name {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content {
+    background-color: white;
+    padding: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    
+}
+
+.disclaimer {
+    color: red;
+    margin-top: 4rem;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+span {
+    font-weight: bold;
+}
+
+.text_link_black {
+    color: black;
+    text-decoration: none;
+}

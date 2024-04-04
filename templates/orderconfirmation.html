@@ -1,0 +1,22 @@
+{% include "header.html" %}
+
+<!-- Order conformation page content -->
+<div class="container">
+<h1 class="page_name">3. Order Confirmation</h1>
+</div>
+<div class="content container rounded">
+  <h2 style="margin-bottom: 2rem;">Your order is in! Your order number is: {{ order_number }}</h2>
+  <h2>From our team, to you.... Thank you for your purchace!</h2>
+  <br>
+  <img src="../static/assets/site_imgs/python_snake.jpg" class="center" alt="Python snake">
+  <hr>
+  <p>Thank you for your order. You will shortly receive an email confirming your order. Once your order has been proceed and shipped, you will receive another email with that shipping information.</p>
+  <p>If you have any questions, please feel free to refer to our <a href="{{ url_for('faq') }}">FAQ page</a> or contact us directly using our <a href="{{ url_for('contact') }}">Contact page</a>.</p>
+  <p>All the best!</p>
+  <br>
+  <p>The Python & Bugs Online Insect Feeder team 🐍</p>
+  <p class="disclaimer">This online shop was created for an online project. No order has been placed or processed.</p>
+</div>
+       
+<!-- Footer  -->
+{% include "footer.html" %}

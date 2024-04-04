@@ -1,0 +1,29 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% include "header.html" %}
+
+<!-- Contact page content -->
+<div class="container">
+  <h1 class="page_name">Contact Us!</h1>
+  </div>
+  <div class="content container rounded">
+    <h2>Get in Touch! 🦎</h2>
+    <hr>
+    <h3>Why Reach Out?</h3>
+    <ul>
+      <li>Got questions? We’ve got answers!</li>
+      <li>Need a virtual high-five? We’re experts at those.</li>
+    </ul>
+    <h3>How We Can Help</h3>
+    <ul>
+      <li>Solving slithering puzzles, one email at a time.</li>
+      <li>Making online shopping a delightful experience.</li>
+      <li>Maybe we already have your answer, check out our <a href="{{ url_for('faq') }}">FAQ page.</a></li>
+    </ul>
+    <h2>Thank You!</h2>
+    <p>We’ll respond faster than a bearded dragon eyeballing a hornworm. 🐛 </p>
+    {{  render_form(contact_form, novalidate=True, button_map={"Send": "primary"}) }}
+    <p class="disclaimer">Text for page generated using Bing Copilot.</p>
+  </div>
+
+<!-- Footer  -->
+{% include "footer.html" %}

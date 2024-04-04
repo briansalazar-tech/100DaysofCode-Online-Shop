@@ -1,0 +1,22 @@
+{% include "header.html" %}
+
+<!-- Logout page content -->
+<div class="container">
+<h1 class="page_name">Thank You for Your Visit</h1>
+</div>
+<div class="content container rounded">
+  <h2>You have been signed out.</h2>
+  <br>
+  <img src="../static/assets/site_imgs/curled_snake.jpg" alt="snake curled up">
+  <hr>
+  <p>Thank you for visiting our website! We hope to have you back soon!</p>
+  <p>To return to our shop home, click on this <a href="{{ url_for('shophome') }}">link</a>.</p>
+  <p>To sign back in, click <a href="{{ url_for('login') }}">here</a>.</p>
+  <p>If you would like to contact us, please click on this <a href="{{ url_for('contact') }}">link</a>.</p>
+  <p>All the best!</p>
+  <br>
+  <p>The Python & Bugs Online Insect Feeder team 🐍</p>
+</div>
+
+<!-- Footer  -->
+{% include "footer.html" %}

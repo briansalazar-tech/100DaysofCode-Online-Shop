@@ -1,0 +1,46 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% include "header.html" %}
+
+<!-- Selected item content -->
+<div class="container">
+<h1 class="page_name">{{ item[1] }}</h1>
+</div>
+<div class="content container rounded">
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+      <div class="me-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
+        <img src="{{ item[3] }}" alt="{{ item[2] }}">
+      </div>
+      
+      <div class="me-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
+          <h2>{{ item[1] }}</h2>
+          <p>Ratings: {{ item[5] }} ({{ item[6] }} reviews) </p>
+          <p class="lead">{{ item[7] }}</p>
+          <h3>Price</h2>
+          <h4>${{ item[4] }}</h4>
+          <br>
+          <h3>Select Quantity</h2>
+          <p>Note: You must be signed in to add items to cart.</p>
+          {% if not current_user.is_authenticated: %}
+          <p>If you do not have an account you can register by clicking on this <a href="{{ url_for('register') }}">link</a>.</p> 
+          <p>After you are signed in, option to add items to cart will be available.</p>
+          
+          <a href="{{ url_for('login') }}"><button type="button" class="btn btn-success mt-3">Log In to Buy</button></a>
+          {% else %}
+          <p style="margin-top: 1rem;"><span>Quantity per order: </span> {{ item[8] }}</p>
+          <div style="width: 60%">
+            {{ render_form(quantity, novalidate=True, button_map={"addtocart": "primary"}) }}
+          </div>
+          {% endif %}
+      </div>
+  </div>
+  <div>
+      <hr>
+      <h2>Quick information about {{ item[2] }}</h2>
+      <p>{{ item[9] }}</p>
+  </div>
+    
+</div>
+
+<!-- Footer  -->
+{% include "footer.html" %}
