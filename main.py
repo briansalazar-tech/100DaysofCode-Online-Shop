@@ -11,6 +11,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from feeders import populate_product_table
 from backofshop import contact_email, order_confirmation_email
+from dotenv import load_dotenv
+
+load_dotenv()
 
 EMPTY_CART = True
 CUSTOMER_CART = []
