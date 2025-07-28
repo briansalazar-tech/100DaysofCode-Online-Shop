@@ -1,6 +1,9 @@
 import smtplib, os
 from email.message import EmailMessage
 from datetime import date
+from dotenv import load_dotenv
+
+load_dotenv()
 
 EMAIL = os.environ.get("email")
 APP_PW =  os.environ.get("app_pw")
