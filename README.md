@@ -84,7 +84,71 @@ Additionally, within main.py the **create-checkout-session route** is used to re
 
 The **Project Walkthrough** section will provide more details on the functionality of main.py.
 ## Project Walkthrough
-Insert walkthrough
+### Setup
+The project first imports the necessary modules and components from the files listed above. The program also has constants and environment variables that are set up at the top of the main.py file.
+With that, the Flask application and database are set up for this project. The database used is a SQLite database and has three tables.
+-	Products: Contains the store products.
+-	User: Contains site user data.
+-	Cart: Contains the user’s carts, which combines data from the products and user tables.
+If the database file is brand new, the products table gets populated with the data that is loaded from the feeders.py file.
+### Flask Routes
+#### Home Route
+This route returns the splash page when someone visits the website. On this page, the user is presented with the option to enter the store.
+#### Shop Home
+The **Shop Home** route displays the website’s online catalog of items that are available for sale. Each card displays an item image, name, price, rating, and an option to view an individual item.
+
+On the website's navbar, only the shop home route is presented. This route does not redirect to the splash page.
+#### Selected Product
+The **selected product** route displays an individual item when a user selects it from the home page.
+
+The page itself pulls data from the products database table and presents a user with the following:
+-	Item image, name, rating, description, and item price.
+-	A drop-down allowing users to add items to the user’s cart. Additionally, the user is informed that they must log in to add an item to their cart.
+
+Once a user adds an item to their cart, they are redirected to their shopping cart, which reflects the new items added, and if a value is updated, the new value is reflected.
+#### Login
+The **login** route allows a user to log into the website. If the data entered does not match the database entry, they are informed that the account may not exist or that their password is incorrect. If a user successfully logs in, they are redirected to the shop home page.
+#### Register
+The **register** page allows users to register for an account on the website. If an account already exists, they are redirected to the login page.
+#### Logout
+This route logs out a user who is currently logged in.
+#### Cart
+The **cart** route returns the user’s shopping cart. This route is only accessible if a user is logged in and pulls data from the shopping cart table.
+
+On the page itself, the user is presented with the items they have added to their cart, the item’s price, quantity, and an option to remove the item. The cart's subtotal is also displayed. 
+Additionally, there are options to continue shopping or proceed to the shipping page.
+#### Update Item
+The update route redirects the user to the selected products page, allowing them to update the item’s quantity.
+#### Remove Item
+If the user clicks on the remove link in their shopping cart, this route removes the item from their cart. This change is also reflected in the database.
+#### Shipping
+The **shipping** page displays the **ShippingForm**, which the user populates with their shipping information.
+
+Once the form is submitted, the global **SHIPPING_ADDRESS constant** is updated to reflect the data that is provided by the user.  The user then proceeds to the payment page.
+#### Payment
+The **payment information** page is the next step in the checkout process. This page displays the user’s order details, shipping and contact information, and the option to proceed to process a payment. Payments processed on this website are completed utilizing Stripe and are initiated in the following route.
+#### Create Checkout Session
+The **create checkout session** route redirects the user to the Stripe payment page. Payments on this website were processed using Stripe’s test mode as a proof of concept to make sure that payments could be processed successfully. 
+
+If a payment is successful, the user is directed to the order confirmation page. If a payment is canceled, they are returned to the shipping page. 
+
+*To create a checkout session, a Stripe API key is needed*.
+#### Order Confirmation
+The **order confirmation** page is the last step in the checkout process. Once a user’s order is processed, they are redirected to this page. If the cart is empty, or the user tries to access the page with no shipping address information, they are redirected to the appropriate step in the checkout process.
+
+If an order is successful, the global constants are reset, and the user is sent an email containing their order details. Additionally, the database is updated to reflect that the checkout process has been completed. 
+#### Contact
+The **contact** page contains a contact form that can be submitted by site visitors.
+
+This page contains the **ContactForm**, and when a **POST request** is submitted, the data passed by the user is sent to the site administrator using smtplib.
+#### Message Delivered
+When a visitor submits a message, they are redirected to a page informing them that their message has been delivered.
+#### About
+**About** provides information about the online store. Text for this page was generated with Gen AI.
+#### FAQ
+**FAQ** provides FAQ information about the online store. Text for this page was generated with Gen AI.
+
+
 ## Project Flowcharts
 Insert flowcharts
 ## Project Screenshots
