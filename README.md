@@ -147,9 +147,10 @@ When a visitor submits a message, they are redirected to a page informing them t
 **About** provides information about the online store. Text for this page was generated with Gen AI.
 #### FAQ
 **FAQ** provides FAQ information about the online store. Text for this page was generated with Gen AI.
-
-
 ## Project Flowcharts
-Insert flowcharts
+### Checkout Process
+![Checkout process flow chart](flowcharts/CheckOutProcessFlow.png)
+### Populating the Products table in the onlineshop.db
+![Products population flow chart](flowcharts/ProductTablePopulationFlow.png)
 ## Project Screenshots
 Screenshots for this project can be found in the [screenshots folder](/screenshots).
